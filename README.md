@@ -9,3 +9,5 @@
 -copy the Zeta folder to your htdocs folder <br>
 -and you can access it throw the localhost/Zeta it will redirect you to the login page<br>
 -do not forget to change the database configuration at Zeta/app/Config/database.php<br>
+
+***if you have any problem with the calss named String it is according to PHP version read this to fix the problem : https://github.com/cakephp/cakephp/issues/7573
