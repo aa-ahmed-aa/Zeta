@@ -6,6 +6,9 @@
 	<?php
 		
 		echo $this->element('find');
+		echo'<br/>';
+		echo $this->element('language');
+		echo'<br/>';
 		echo $this->Form->input('solution');
 	?>
 	</fieldset>
@@ -20,3 +23,4 @@
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+

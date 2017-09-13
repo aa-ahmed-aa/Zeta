@@ -7,6 +7,7 @@
 
 			echo nl2br(h($submittion['Submittion']['solution']));
 			echo $this->element('respond');
+			//echo $this->element('language');
 		?>
 		</fieldset>
 	<?php echo $this->Form->end(__('Submit')); ?>

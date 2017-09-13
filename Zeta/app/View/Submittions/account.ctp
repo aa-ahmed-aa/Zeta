@@ -5,6 +5,7 @@
 		<tr>
 			<th><?php echo '#' ?></th>
 			<th><?php echo 'Problems' ?></th>
+			<th><?php echo 'Language' ?></th>
 			<th><?php echo 'Response' ?></th>
 			<th><?php echo 'Actions' ?></th>
 		</tr>
@@ -14,6 +15,7 @@
 			<tr>
 				<td><?php echo h($submittion['Submittion']['id']); ?>&nbsp;</td>
 				<td><?php echo h($submittion['Submittion']['problem']); ?>&nbsp;</td>
+				<td><?php echo h($submittion['Submittion']['language']); ?>&nbsp;</td>	
 				<td><?php echo h($submittion['Submittion']['response']); ?>&nbsp;</td>
 				
 				<td class="actions">

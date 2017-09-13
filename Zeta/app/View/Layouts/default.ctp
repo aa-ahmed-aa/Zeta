@@ -79,10 +79,31 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 									}
 							?>
 						</li>	
+					<li>
+							<?php 
+									if(AuthComponent::user('role') == 1){
+										echo $this->HTML->link('Add User',array('controller' => 'Users', 'action' => 'add'));
+									}
+							?>
+						</li>	
 						<li>
 							<?php 
 									if(AuthComponent::user('role') == 1){
 										echo $this->HTML->link('Show Users',array('controller' => 'Users', 'action' => 'index'));
+									}
+							?>
+						</li>
+						<li>
+							<?php 
+									if(AuthComponent::user('role') == 1){
+										echo $this->HTML->link('TestCases',array('controller' => 'Testcases', 'action' => 'index'));
+									}
+							?>
+						</li>
+						<li>
+							<?php 
+									if(AuthComponent::user('role') == 1){
+										echo $this->HTML->link('Add TestCase',array('controller' => 'Testcases', 'action' => 'add'));
 									}
 							?>
 						</li>

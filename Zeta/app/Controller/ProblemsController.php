@@ -38,6 +38,10 @@ class ProblemsController extends AppController {
 		}
 		$options = array('conditions' => array('Problem.' . $this->Problem->primaryKey => $id));
 		$this->set('problem', $this->Problem->find('first', $options));
+
+		$nameProb = $this->Problem->query("SELECT name FROM problems where id = '$id'");
+		$this->Session->write('ProbName', $nameProb[0]['problems']['name']); 
+		//echo $nameProb[0]['problems']['name'];
 	}
 
 /**
