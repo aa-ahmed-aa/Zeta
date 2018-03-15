@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses("Dorm", 'Vendor/cppDorm');
 /**
  * Submittions Controller
  *
@@ -111,7 +112,14 @@ class SubmittionsController extends AppController {
 			
 			$this->request->data['Submittion']['user_id'] = $this->Auth->user('id');
 			$this->request->data['Submittion']['response'] = '--';
-			
+
+            if( !Dorm::compile( $this->request->data['Submittion']['solution'] ) )
+            {
+                $this->Session->setFlash(__('Compilation Error'));
+                die("Compilation error");
+                return $this->redirect(array('action' => 'index'));
+            }
+
 			if ($this->Submittion->save($this->request->data)) {
 				$this->Session->setFlash(__('The submittion has been saved.'));
 				return $this->redirect(array('action' => 'index'));
