@@ -50,8 +50,9 @@ class ProblemsController extends AppController {
 		if(AuthComponent::user('role') == 1){
 				if ($this->request->is('post')) {
 					$this->Problem->create();
-					if ($this->Problem->save($this->request->data)) {
-						$this->Session->setFlash(__('The problem has been saved.'));
+//                    dd($this->request->data);
+					if ($this->Problem->saveAll($this->request->data)) {
+						$this->Session->setFlash(__('The problem has been saved.'), 'default', array(), 'good');
 						return $this->redirect(array('action' => 'index'));
 					} else {
 						$this->Session->setFlash(__('The problem could not be saved. Please, try again.'));
@@ -78,7 +79,7 @@ class ProblemsController extends AppController {
 				throw new NotFoundException(__('Invalid problem'));
 			}
 			if ($this->request->is(array('post', 'put'))) {
-				if ($this->Problem->save($this->request->data)) {
+				if ($this->Problem->saveAll($this->request->data)) {
 					$this->Session->setFlash(__('The problem has been saved.'));
 					return $this->redirect(array('action' => 'index'));
 				} else {

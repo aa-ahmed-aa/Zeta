@@ -9,18 +9,18 @@ App::uses("Dorm", 'Vendor/cppDorm');
  */
 class SubmittionsController extends AppController {
 
-/**
- * Components
- *
- * @var array
- */
+    /**
+     * Components
+     *
+     * @var array
+     */
 	public $components = array('Paginator');
 
-/**
- * index method
- *
- * @return void
- */
+    /**
+     * index method
+     *
+     * @return void
+     */
 	public function index() {
 			//send problems
 			$this->loadModel('Problem');
@@ -38,13 +38,13 @@ class SubmittionsController extends AppController {
 			$this->set('submitions' ,$submitions);
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+    /**
+     * view method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
 	public function account($id = null) {
 		if(AuthComponent::user('id') != $id && AuthComponent::user('role') != 1 )
 		{
@@ -62,10 +62,11 @@ class SubmittionsController extends AppController {
 		$options = array('conditions' => array('Submittion.user_id' => $id));
 		$this->set('submittions', $this->Submittion->find('all', $options));
 	}
-/*
- *  account for showing my submitions 
- *
- */
+
+    /*
+     *  account for showing my submitions
+     *
+     */
 	public function view($id = null) {
 		
 			if (!$this->Submittion->exists($id)) {
@@ -96,18 +97,19 @@ class SubmittionsController extends AppController {
 	}
 	
 	
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
+    /**
+     * add method
+     *
+     * @return void
+     */
+	public function add($problem_id) {
 		//send problems
 		$this->loadModel('Problem');
 		$Problems = $this->Problem->find('all');
 		$this->set('problems' ,$Problems);
 		
 		if ($this->request->is('post')) {
+            dd($this->request->data);
 			$this->Submittion->create();
 			
 			$this->request->data['Submittion']['user_id'] = $this->Auth->user('id');
@@ -129,15 +131,16 @@ class SubmittionsController extends AppController {
 		}
 		$users = $this->Submittion->User->find('list');
 		$this->set(compact('users'));
+		$this->set('problem_id',$problem_id);
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+    /**
+     * edit method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
 	public function edit($id = null) {
 		if(AuthComponent::user('role') == 1)
 		{
@@ -179,13 +182,13 @@ class SubmittionsController extends AppController {
 		return $max;
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+    /**
+     * delete method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
 	/*public function delete($id = null) {
 		$this->Submittion->id = $id;
 		if (!$this->Submittion->exists()) {

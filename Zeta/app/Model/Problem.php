@@ -6,31 +6,60 @@ App::uses('AppModel', 'Model');
  */
 class Problem extends AppModel {
 
-/**
- * Validation rules
- *
- * @var array
- */
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
 	public $validate = array(
 		'name' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+
 			),
 		),
 		'Description' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+
 			),
 		),
 	);
+
+    /**
+     * @see Testcase
+     */
+
+    /**
+     * @see Submittion
+     */
+    public $hasMany = array(
+        'Testcase' => array(
+            'className' => 'Testcase',
+            'foreignKey' => 'problem_id',
+            'dependent' => true,
+            'conditions' => '',
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'exclusive' => '',
+            'finderQuery' => '',
+            'counterQuery' => ''
+        ),
+        'Submittion' => array(
+            'className' => 'Submittion',
+            'foreignKey' => 'problem_id',
+            'dependent' => false,
+            'conditions' => '',
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'exclusive' => '',
+            'finderQuery' => '',
+            'counterQuery' => ''
+        )
+    );
+
 }

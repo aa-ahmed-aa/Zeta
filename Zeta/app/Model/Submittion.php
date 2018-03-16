@@ -23,9 +23,9 @@ class Submittion extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'problem' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+		'problem_id' => array(
+            'numeric' => array(
+                'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -79,6 +79,13 @@ class Submittion extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		),
+        'Problem' => array(
+            'className' => 'Problem',
+            'foreignKey' => 'problem_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        )
 	);
 }

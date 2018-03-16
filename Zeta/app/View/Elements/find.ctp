@@ -1,16 +1,12 @@
-<?php	
-      
-		$a = array();
-		foreach($problems as $problem)
-		{
-			array_push($a, $problem['Problem']['name']);
-		}
-		
-		$list =array_combine($a,$a);
-	
-		
-		echo $this->Form->input('problem', array(
-			'options' => $list,
-			'empty' => '(choose Problem)'
-		));
+<?php
+    foreach($problems as $problem)
+    {
+        $a[$problem['Problem']['id']] =  $problem['Problem']['name'];
+    }
+
+    echo $this->Form->input('problem_id', array(
+        'value' => $problem_id,
+        'options' => $a,
+        'empty' => '(choose Problem)'
+    ));
 ?>

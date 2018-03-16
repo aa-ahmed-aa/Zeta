@@ -120,6 +120,15 @@ TEXT;
 
 }
 
+/**
+ * Ahmed khaled dd function for cake 2
+ */
+if (!function_exists('dd')) {
+    function dd($var, $showHtml = null, $showFrom = true) {
+        die(debug($var, $showHtml , $showFrom ));
+    }
+}
+
 if (!function_exists('sortByKey')) {
 
 /**

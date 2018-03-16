@@ -10,7 +10,7 @@
 		
 		</dd>
 		<br><br>
-			<p class="Subre"><?php echo $this->Html->link(__('Submit'), array('controller' => 'submittions', 'action' => 'add'));  ?></p>
+			<p class="Subre"><?php echo $this->Html->link(__('Submit'), array('controller' => 'submittions', 'action' => 'add', $problem['Problem']['id']));  ?></p>
 			
          
 	</dl>
