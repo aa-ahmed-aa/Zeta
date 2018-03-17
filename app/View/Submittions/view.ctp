@@ -26,7 +26,7 @@
 		<br>
 		<h1 style="font-size: 20px;"><dt><?php echo __('Problem'); ?></dt></h1>
 		<dd>
-			<?php echo h($submittion['Submittion']['problem']); ?>
+			<?php echo h($submittion['Problem']['name']); ?>
 			&nbsp;
 		</dd>
 		<br>

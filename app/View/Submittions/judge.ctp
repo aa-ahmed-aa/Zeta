@@ -16,7 +16,7 @@
 						
 						<tr>
 							<td><?php echo h($submittion['Submittion']['id']); ?>&nbsp;</td>
-							<td><?php echo h($submittion['Submittion']['problem']); ?>&nbsp;</td>
+							<td><?php echo h($submittion['Problem']['name']); ?>&nbsp;</td>
 							<td><?php echo h($submittion['Submittion']['time']); ?>&nbsp;</td>
 							<td><?php echo h($submittion['Submittion']['response']); ?>&nbsp;</td>
 							<td class="actions">

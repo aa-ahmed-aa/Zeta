@@ -42,7 +42,7 @@
 								{
 									if($submition['Submittion']['user_id'] == $user['User']['id'] && !empty($submition['Submittion']['response']))
 									{
-										array_push($user_Problems, $submition['Submittion']['problem']);
+										array_push($user_Problems, $submition['Problem']['name']);
 										array_push($user_Submittions, $submition['Submittion']['response']);
 										array_push($Cur, $submition['Submittion']['time']);	
 									}

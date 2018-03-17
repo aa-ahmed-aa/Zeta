@@ -102,7 +102,7 @@ class SubmittionsController extends AppController {
      *
      * @return void
      */
-	public function add($problem_id) {
+	public function add($problem_id = null) {
 		//send problems
 		$this->loadModel('Problem');
 		$Problems = $this->Problem->find('all');

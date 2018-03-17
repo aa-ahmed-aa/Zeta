@@ -5,7 +5,7 @@
     }
 
     echo $this->Form->input('problem_id', array(
-        'value' => $problem_id,
+        'value' => isset($problem_id) ? $problem_id : '' ,
         'options' => $a,
         'empty' => '(choose Problem)'
     ));
