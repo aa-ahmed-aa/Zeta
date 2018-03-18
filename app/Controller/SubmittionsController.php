@@ -73,7 +73,7 @@ class SubmittionsController extends AppController {
 				throw new NotFoundException(__('Invalid submittion'));
 			}
 			
-			$options = array('conditions' => array('Submittion.' . $this->Submittion->primaryKey => $id));
+			$options = array('conditions' => array('Submittion.id' => $id));
 			$this->set('submittion', $this->Submittion->find('first', $options));
 		
 	}
@@ -95,11 +95,51 @@ class SubmittionsController extends AppController {
 			return $this->redirect(array('controller'=>'Submittions','action' => 'index'));
 		}
 	}
-	
+
+    /**
+     * this will call the Dorm package to compiler user code and srun it
+     * @param null $submition_id => the submition that will be judged
+     */
+    public function judgeUserProblem($submition_id = null)
+    {
+        $submition = $this->Submittion->findById($submition_id);
+
+        //COMPILATION
+        //go to user folder in files and create the input file and output files "files/compile"
+        $compilation_path = WWW_ROOT . 'files' . DS . 'compile';
+
+        $dorm = new Dorm();
+        $dorm->setCompilationPath($compilation_path);
+
+        if( ! $dorm->compile($submition['Submittion']['solution']) )
+        {
+            $sub = new Submittion();
+            $sub->id = $submition['Submittion']['id'];
+            $sub->response = "Compilation Error";
+
+            if ( $this->Submittion->save($sub) )
+            {
+                $this->Session->setFlash(__('Compiled'));
+                return $this->redirect(array('action' => 'judge'));
+            }
+            else{
+//                dd($this->Submittion->validationErrors);
+                $this->Session->setFlash(__('Compiled error'));
+                return $this->redirect(array('action' => 'judge'));
+            }
+        }
+
+        //RUN
+        //call the dorm compile and return the response see Dorm::compile
+
+        //RUNNING THE CODE
+
+        return $this->redirect(array('action' => 'judge'));
+    }
 	
     /**
      * add method
-     *
+     * @param $problem_id => the problem id to pass to the find element so user can submit this problem directlly
      * @return void
      */
 	public function add($problem_id = null) {
@@ -109,18 +149,10 @@ class SubmittionsController extends AppController {
 		$this->set('problems' ,$Problems);
 		
 		if ($this->request->is('post')) {
-            dd($this->request->data);
 			$this->Submittion->create();
 			
 			$this->request->data['Submittion']['user_id'] = $this->Auth->user('id');
 			$this->request->data['Submittion']['response'] = '--';
-
-            if( !Dorm::compile( $this->request->data['Submittion']['solution'] ) )
-            {
-                $this->Session->setFlash(__('Compilation Error'));
-                die("Compilation error");
-                return $this->redirect(array('action' => 'index'));
-            }
 
 			if ($this->Submittion->save($this->request->data)) {
 				$this->Session->setFlash(__('The submittion has been saved.'));
@@ -149,10 +181,10 @@ class SubmittionsController extends AppController {
 			}
 			if ($this->request->is(array('post', 'put'))) {
 				$this->request->data['Submittion']['id'] = $id;
-				 
+
 				if ($this->Submittion->save($this->request->data)) {
 					$this->Session->setFlash(__('The Submittion has been saved.'));
-					return $this->redirect(array('action' => 'index'));
+					return $this->redirect(array('action' => 'judge'));
 				} else {
 					$this->Session->setFlash(__('The Submittion could not be saved. Please, try again.'));
 				}
