@@ -66,7 +66,6 @@ class Dorm {
 
         if(file_exists($executable))
         {
-            $this->cleanCompilationFolder([$file_name, $executable]);
             return true;
         }
         else
@@ -74,6 +73,29 @@ class Dorm {
             $this->cleanCompilationFolder([$file_name, $executable]);
             return false;
         }
+    }
+
+    /**
+     * @param $input_file => the input that we will run the code on
+     * @param $output_file => the correct output to compare with
+     * @param $code => the code that will be run
+     * @return string => return the output of the run "Accepted" or "Wrong Answer" to the
+     * matched test cases or "Compilation error" if not compiled
+     */
+    public function run($code, $input_file , $output_file)
+    {
+        //write the input_file to the compilation folder
+        //compile the code to run wth the input file we just created
+        if( $this->compile($code) )
+        {
+            //compare the output of the code with correct_output (passed to the function)
+            //return accepted if matches
+            //return wrong answer if not matching
+        }
+        else{
+            return "Compilation error";
+        }
+
     }
 }
 ?>
