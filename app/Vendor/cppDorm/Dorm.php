@@ -61,8 +61,10 @@ class Dorm {
 
         file_put_contents(  $file_name , $code );
 
-        $command = GCC . " -o ". $executable ." ".$file_name;
-        $output = shell_exec($command);
+        $command = GCC . " -o ". $executable ." ".$file_name." 2>&1";
+        exec($command , $output, $status);
+ 
+        die(var_dump($output));
 
         if(file_exists($executable))
         {

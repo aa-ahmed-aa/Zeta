@@ -111,7 +111,7 @@ class SubmittionsController extends AppController {
         $dorm = new Dorm();
         $dorm->setCompilationPath($compilation_path);
 
-        dd( $dorm->run($submition['Submittion']['solution']) );
+        dd( $dorm->compile($submition['Submittion']['solution']) );
 
         if( ! $dorm->compile($submition['Submittion']['solution']) )
         {
