@@ -63,10 +63,8 @@ class Dorm {
 
         $command = GCC . " -o ". $executable ." ".$file_name." 2>&1";
         exec($command , $output, $status);
- 
-        die(var_dump($output));
 
-        if(file_exists($executable))
+        if( empty($output) )
         {
             return true;
         }
