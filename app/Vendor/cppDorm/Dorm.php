@@ -55,14 +55,16 @@ class Dorm {
     public function compile( $code )
     {
         $file_name = $this->getCompilationPath() . DS .rand(0,999999)."_".time().".cpp";
+
         file_put_contents($file_name,$code);
 
         $executable = $this->getCompilationPath() . DS . "programe.exe";
 
-        file_put_contents(  $file_name , $code );
-
         $command = GCC . " -o ". $executable ." ".$file_name." 2>&1";
+
         exec($command , $output, $status);
+
+        $this->cleanCompilationFolder([$file_name, $executable]);
 
         if( empty($output) )
         {
@@ -70,7 +72,6 @@ class Dorm {
         }
         else
         {
-            $this->cleanCompilationFolder([$file_name, $executable]);
             return false;
         }
     }
@@ -89,6 +90,8 @@ class Dorm {
         if( $this->compile($code) )
         {
             //compare the output of the code with correct_output (passed to the function)
+           
+
             //return accepted if matches
             //return wrong answer if not matching
         }
