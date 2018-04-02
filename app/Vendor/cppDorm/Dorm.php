@@ -90,7 +90,6 @@ class Dorm {
         if( $this->compile($code) )
         {
             //compare the output of the code with correct_output (passed to the function)
-           
 
             //return accepted if matches
             //return wrong answer if not matching

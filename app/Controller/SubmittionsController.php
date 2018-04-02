@@ -102,31 +102,47 @@ class SubmittionsController extends AppController {
      */
     public function judgeUserProblem($submition_id = null)
     {
+        $this->Submittion->recursive = 2;
         $submition = $this->Submittion->findById($submition_id);
 
-        //COMPILATION
-        //go to user folder in files and create the input file and output files "files/compile"
-        $compilation_path = WWW_ROOT . 'files' . DS . 'compile';
+        $correct_input_file_name = $submition['Problem']['Testcase'][0]['input_file'];
+        $correct_output_file_name = $submition['Problem']['Testcase'][0]['output_file'];
 
+        $Testcases = $submition['Problem']['Testcase'];
+
+        //this is the compile and run path for this submmition
+        $compile_and_run_path = WWW_ROOT.'files'.DS .$submition['User']['id'].$submition['User']['username'];
+        if( !file_exists($compile_and_run_path) )
+            mkdir($compile_and_run_path);
+
+
+        //create instance of the runner
         $dorm = new Dorm();
-        $dorm->setCompilationPath($compilation_path);
+        $dorm->setCompilationPath($compile_and_run_path);
 
-
-        if( ! $dorm->compile($submition['Submittion']['solution']) )
+        //loop throw the test cases and prepare the input and output files
+        foreach($Testcases as $testcase)
         {
-            $sub = new Submittion();
-            $sub->id = $submition['Submittion']['id'];
-            $sub->response = "Compilation Error";
+            $input_file['file_name'] = $correct_input_file_name;
+            $input_file['file_content'] = $testcase['input_text'];
 
-            if ( $this->Submittion->save($sub) )
+            $output_file['file_name'] = $correct_output_file_name;
+            $output_file['file_content'] = $testcase['output_text'];
+
+            $response = $dorm->run($submition['Submittion']['solution'], $input_file, $output_file);
+            //if this test fail responde with wrong answer and break
+            if($response == 'Fail')
             {
-                $this->Session->setFlash(__('Compiled'));
-                return $this->redirect(array('action' => 'judge'));
-            }
-            else{
-//                dd($this->Submittion->validationErrors);
-                $this->Session->setFlash(__('Compiled error'));
-                return $this->redirect(array('action' => 'judge'));
+                $sub = new Submittion();
+                $sub->id = $submition['Submittion']['id'];
+                $sub->response = "Wrong Answer";
+
+                if ( $this->Submittion->save($sub) )
+                {
+                    $this->Session->setFlash(__("Wrong Answer"));
+                    return $this->redirect(array('action' => 'judge'));
+                }
+                break;
             }
         }
 
