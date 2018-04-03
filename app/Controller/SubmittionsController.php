@@ -115,10 +115,17 @@ class SubmittionsController extends AppController {
         if( !file_exists($compile_and_run_path) )
             mkdir($compile_and_run_path);
 
-
         //create instance of the runner
         $dorm = new Dorm();
         $dorm->setCompilationPath($compile_and_run_path);
+
+        file_put_contents($dorm->getCompilationPath() . DS . $correct_input_file_name,
+            $Testcases[0]['input_text']);
+        //compile the code once this process will output the exe file for user code
+        if( ! $dorm->compile($submition['Submittion']['solution']) )
+        {
+            $this->__save_respond($submition['Submittion']['id'], "Compiler Error", true);
+        }
 
         //loop throw the test cases and prepare the input and output files
         foreach($Testcases as $testcase)
@@ -129,31 +136,36 @@ class SubmittionsController extends AppController {
             $output_file['file_name'] = $correct_output_file_name;
             $output_file['file_content'] = $testcase['output_text'];
 
-            $response = $dorm->run($submition['Submittion']['solution'], $input_file, $output_file);
-            //if this test fail responde with wrong answer and break
-            if($response == 'Fail')
-            {
-                $sub = new Submittion();
-                $sub->id = $submition['Submittion']['id'];
-                $sub->response = "Wrong Answer";
+            $response = $dorm->run($input_file, $output_file);
 
-                if ( $this->Submittion->save($sub) )
-                {
-                    $this->Session->setFlash(__("Wrong Answer"));
-                    return $this->redirect(array('action' => 'judge'));
-                }
+            //if this test fail responde with wrong answer and break
+            if($response == WRONG_ANSWER )
+            {
+                $this->__save_respond($submition['Submittion']['id'],"Wrong Answer",true);
                 break;
             }
         }
 
-        //RUN
-        //call the dorm compile and return the response see Dorm::compile
-
-        //RUNNING THE CODE
+        //passed all the testcases then it is accepted
+        $this->__save_respond($submition['Submittion']['id'],"Accepted",true);
 
         return $this->redirect(array('action' => 'judge'));
     }
-	
+
+    private function __save_respond($submmition_id ,$respond, $redirect=false)
+    {
+        $sub = new Submittion();
+        $sub->id = $submmition_id;
+        $sub->response = $respond;
+
+        if ( $this->Submittion->save($sub) )
+        {
+            $this->Session->setFlash(__($respond));
+            if( $redirect )
+                return $this->redirect(array('action' => 'judge'));
+        }
+    }
+
     /**
      * add method
      * @param $problem_id => the problem id to pass to the find element so user can submit this problem directlly
