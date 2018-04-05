@@ -54,11 +54,12 @@ class Dorm {
      */
     public function compile( $code )
     {
-        $file_name = $this->getCompilationPath() . DS .rand(0,999999)."_".time().".cpp";
+        $random_name = rand(0,999999)."_".time();
+        $file_name = $this->getCompilationPath() . DS . $random_name . ".cpp";
 
         file_put_contents($file_name,$code);
 
-        $executable = $this->getCompilationPath() . DS . "programe.exe";
+        $executable = $this->getCompilationPath() . DS . "program.exe";
 
         $command = GCC . " -o ". $executable ." ".$file_name." 2>&1";
 
@@ -84,11 +85,28 @@ class Dorm {
      */
     public function run($input_file , $output_file)
     {
-        //write the input_file to the compilation folder
+        //write input file to disk
         file_put_contents($this->getCompilationPath() . DS . $input_file['file_name'], $input_file['file_content']);
-        //compile the code to run wth the input file we just created
 
+        //execute the .exe file
+        $command = "cd " . $this->getCompilationPath() . DS . " & ";
+        $command .= $this->getCompilationPath() . DS . "program.exe 2>&1";
+        exec($command , $output, $status);
 
+        //error happened while run
+        if( ! empty($output) )
+        {
+            return WRONG_ANSWER;
+        }
+
+        //compare the output file with user output file
+        $user_output = file_get_contents($this->getCompilationPath() . DS . $output_file['file_name']);
+        $correct_output = $output_file['file_content'];
+        if( $user_output  == $correct_output )
+        {
+            return ACCEPTED;
+        }
+        return WRONG_ANSWER;
     }
 }
 ?>
