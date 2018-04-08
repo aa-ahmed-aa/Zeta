@@ -5,6 +5,8 @@
         <?php
             echo $this->Form->input('name');
             echo $this->Form->input('Description');
+            echo $this->Form->input('input_file');
+            echo $this->Form->input('output_file');
         ?>
         <hr/>
         <div id="testCases">
@@ -13,16 +15,13 @@
 
                 Read input<input type="file" class="fileInput" id="fileInput0">
 
-                Read output<input type="file" class="fileOutput" id="fileOutput0">
-
                 <?php
-                    //    echo $this->Form->create('Testcase');
-                    echo $this->Form->input('Testcase.0.input_file',array( 'class'=>'inputFile' ,'required' => true));
                     echo $this->Form->input('Testcase.0.input_text',array( 'class'=>'inputText' ,'required' => true));
-                    echo $this->Form->input('Testcase.0.output_file',array('class'=>'outputFile','required' => true));
-                    echo $this->Form->input('Testcase.0.output_text',array('class'=>'outputText','required' => true));
-                    //    echo $this->Form->end();
+                ?>
 
+                Read output<input type="file" class="fileOutput" id="fileOutput0">
+                <?php
+                    echo $this->Form->input('Testcase.0.output_text',array('class'=>'outputText','required' => true));
                 ?>
                 <hr/>
                 <hr/>
@@ -39,17 +38,13 @@
             <h1 style="font-size: 20px;font-weight: bold;"><?= __('TestCase#'); ?> {id}</h1>
 
             Read input<input type="file" class="fileInput" id="fileInput{id}">
+            <?php
+                echo $this->Form->input('Testcase.{id}.input_text',array( 'class'=>'inputText' , 'required' => true));
+            ?>
 
             Read output<input type="file" class="fileOutput" id="fileOutput{id}">
-
             <?php
-            //    echo $this->Form->create('Testcase');
-            echo $this->Form->input('Testcase.{id}.input_file',array( 'class'=>'inputFile' , 'required' => true));
-            echo $this->Form->input('Testcase.{id}.input_text',array( 'class'=>'inputText' , 'required' => true));
-            echo $this->Form->input('Testcase.{id}.output_file',array('class'=>'outputFile', 'required' => true));
-            echo $this->Form->input('Testcase.{id}.output_text',array('class'=>'outputText', 'required' => true));
-            //    echo $this->Form->end();
-
+                echo $this->Form->input('Testcase.{id}.output_text',array('class'=>'outputText', 'required' => true));
             ?>
             <hr/>
             <hr/>
@@ -79,10 +74,7 @@
         //get the id of the current div Text input area
         var targetContentID = $(this).parent().find('.inputText').attr('id');
 
-        //get the id of the current div Name input area
-        var targetNameID = $(this).parent().find('.inputFile').attr('id');
-
-        readInput(targetInputID, targetNameID, targetContentID );
+        readInput(targetInputID, targetContentID );
     });
 
     //read from output areas and insert into output areas
@@ -94,22 +86,15 @@
         //get the id of the current div Text input area
         var targetContentID = $(this).parent().find('.outputText').attr('id');
 
-        //get the id of the current div Name input area
-        var targetNameID = $(this).parent().find('.outputFile').attr('id');
-
-        readInput(targetInputID, targetNameID, targetContentID );
+        readInput(targetInputID, targetContentID );
     });
 
-    function readInput(targetInputID, targetNameID , targetContentID )
+    function readInput( targetInputID, targetContentID )
     {
         var input = document.getElementById( targetInputID );
         var output = document.getElementById(targetContentID);
 
         var myFile = input.files[0];
-        var fileName = myFile['name'];
-
-        $('#'+targetNameID).val(fileName);
-
 
         var reader = new FileReader();
 

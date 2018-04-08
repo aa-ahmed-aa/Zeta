@@ -105,8 +105,8 @@ class SubmittionsController extends AppController {
         $this->Submittion->recursive = 2;
         $submition = $this->Submittion->findById($submition_id);
 
-        $correct_input_file_name = $submition['Problem']['Testcase'][0]['input_file'];
-        $correct_output_file_name = $submition['Problem']['Testcase'][0]['output_file'];
+        $correct_input_file_name = $submition['Problem']['input_file'];
+        $correct_output_file_name = $submition['Problem']['output_file'];
 
         $Testcases = $submition['Problem']['Testcase'];
 
@@ -159,9 +159,11 @@ class SubmittionsController extends AppController {
         $sub->id = $submmition_id;
         $sub->response = $respond;
 
+        $flash_type = ( $respond == "Accepted" ? "Success" : "Fail" );
+
         if ( $this->Submittion->save($sub) )
         {
-            $this->Session->setFlash(__($respond));
+            $this->Session->setFlash(__($respond), $flash_type);
             if( $redirect )
                 return $this->redirect(array('action' => 'judge'));
         }
