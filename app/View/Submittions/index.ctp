@@ -26,10 +26,10 @@
 						
 						
 						<?php
-								$user_Problems = array();
+                                $user_Problems = array();
 								$user_Submittions = array();
 								$Cur = array();
-								$time = strtotime("11:00:00"); 
+								$time = strtotime($contest_starting_time);
 								
 								//set default values for the LIST AS EMPTY
 								foreach($problems as $problem)
@@ -46,13 +46,13 @@
 										array_push($user_Submittions, $submition['Submittion']['response']);
 										array_push($Cur, $submition['Submittion']['time']);	
 									}
-									
-									
 								}
-								
+
 								$LIST = array_combine($user_Problems,$user_Submittions);
 								if(!empty($Cur))
 									$time = max($Cur);
+
+//                                dd($user_Problems);
 						?> 
 							
 							

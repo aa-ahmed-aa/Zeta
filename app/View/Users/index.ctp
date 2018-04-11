@@ -1,6 +1,11 @@
-<h1> Users Ranks 
+
 <div class="problems index">
-	<?php if(AuthComponent::user('role') == 1 ): ?> 
+    <?= $this->Html->link(__('Rank All Users'), array('controller' => 'users','action' => 'rankAllUsers' )); ?>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+	<?php if(AuthComponent::user('role') == 1 ): ?>
 		<table>
 		<tr>
 			<th>id</th>
@@ -34,7 +39,7 @@
 				?>&nbsp;</td>
 				<td class="actions">
 					<?php echo $this->Html->link(__('View Submittions'), array('controller' => 'submittions','action' => 'account', $user['User']['id'])); ?>
-					<?php echo $this->Html->link(__('Add Rank'), array('action' => 'edit', $user['User']['id'])); ?>
+					<?php echo $this->Html->link(__('Rank user'), array('action' => 'rankUser', $user['User']['id'])); ?>
 				</td>
 			
 			</tr>

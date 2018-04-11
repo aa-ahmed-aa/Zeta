@@ -36,6 +36,11 @@ class SubmittionsController extends AppController {
 			//send submitions
 			$submitions = $this->Submittion->find('all');
 			$this->set('submitions' ,$submitions);
+
+            //get the contest starting time
+            $this->loadModel('Setting');
+            $startTime =  $this->Setting->find('first',['conditions'=>['Setting.key'=>'start_time']])['Setting']['value'];
+            $this->set('contest_starting_time' ,$startTime);
 	}
 
     /**
