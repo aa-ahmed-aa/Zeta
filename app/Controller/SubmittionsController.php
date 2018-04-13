@@ -150,6 +150,13 @@ class SubmittionsController extends AppController {
                 $this->__save_respond($submition['Submittion']['id'],"Wrong Answer",true);
                 break;
             }
+
+            if($response == TIME_LIMIT_EXCEEDED)
+            {
+                $this->__save_respond($submition['Submittion']['id'],"Time Limit Exceeded",true);
+                break;
+            }
+
         }
 
         //passed all the testcases then it is accepted

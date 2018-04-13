@@ -91,7 +91,10 @@ class Dorm {
         //execute the .exe file
         $command = "cd " . $this->getCompilationPath() . DS . " & ";
         $command .= $this->getCompilationPath() . DS . "program.exe 2>&1";
-        exec($command , $output, $status);
+        $output = $this->RunCommand($command);
+
+        if($output == TIME_LIMIT_EXCEEDED)
+            return TIME_LIMIT_EXCEEDED;
 
         //error happened while run
         if( ! empty($output) )
@@ -107,6 +110,33 @@ class Dorm {
             return ACCEPTED;
         }
         return WRONG_ANSWER;
+    }
+
+    /**
+     * this function will timeout after 5 second to handle the time limit exceeded
+     * @param $command => the command we will run
+     * @return string => return the time_limit_exceeded if the time is greater than 5 second
+     */
+    public function RunCommand($command)
+    {
+        $descriptorspec = array(
+            0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
+            1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
+            2 => array("file", "error-output.txt", "a") // stderr is a file to write to
+        );
+
+        $time = time();
+        $output = '';
+        $process = proc_open($command, $descriptorspec, $pipes);
+            while($s= fgets($pipes[1], 1024)) {
+                $output .= $s;
+                if(time()-$time>5){
+                    system("taskkill /im program.exe /f");
+                    return TIME_LIMIT_EXCEEDED;
+                }
+            }
+
+        return $output;
     }
 }
 ?>
