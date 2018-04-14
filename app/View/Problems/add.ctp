@@ -5,6 +5,7 @@
         <?php
             echo $this->Form->input('name');
             echo $this->Form->input('Description');
+            echo $this->Form->input('rank');
             echo $this->Form->input('input_file');
             echo $this->Form->input('output_file');
         ?>

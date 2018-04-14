@@ -24,8 +24,8 @@ class SubmittionsController extends AppController {
 	public function index() {
 			//send problems
 			$this->loadModel('Problem');
-			$Problems = $this->Problem->find('all');
-			$this->set('problems' ,$Problems);
+			$problems = $this->Problem->find('all');
+			$this->set('problems' ,$problems);
 			
 			//send users
 			$this->loadModel('User');
@@ -33,9 +33,30 @@ class SubmittionsController extends AppController {
 			$users = $this->User->find('all',$option);
 			$this->set('users' ,$users);
 
-			//send submitions
-			$submitions = $this->Submittion->find('all');
-			$this->set('submitions' ,$submitions);
+            $submmitions = [];
+            foreach( $users as $user )
+            {
+                if($user['User']['role'] == 1)
+                    continue;
+
+                $submmition = [
+                    'user_id' => $user['User']['id'],
+                    'user_name' => $user['User']['username'],
+                    'last_submittion_time' => $this->getUserLastSubmmitionTime($user['User']['id'])
+                ];
+
+                foreach($problems as $problem)
+                {
+                    $submmition['problems'][] = [
+                        'name' => $problem['Problem']['name'],
+                        'response' => $this->getResponseForUserProblem($user['User']['id'], $problem['Problem']['id'])
+                    ];
+                }
+
+                $submmitions[] = $submmition;
+            }
+
+            $this->set('submitions' ,$submmitions);
 
             //get the contest starting time
             $this->loadModel('Setting');
@@ -171,7 +192,7 @@ class SubmittionsController extends AppController {
         $sub->id = $submmition_id;
         $sub->response = $respond;
 
-        $flash_type = ( $respond == "Accepted" ? "Success" : "Fail" );
+        $flash_type = ( $respond == "Accepted" ? "Success" : ( $respond == "Time Limit Exceeded" ? "Time" : "Fail" ) );
 
         if ( $this->Submittion->save($sub) )
         {
@@ -199,7 +220,7 @@ class SubmittionsController extends AppController {
 			$this->request->data['Submittion']['response'] = '--';
 
 			if ($this->Submittion->save($this->request->data)) {
-				$this->Session->setFlash(__('The submittion has been saved.'));
+				$this->Session->setFlash(__('The submittion has been saved.'),"Success");
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The submittion could not be saved. Please, try again.'));
@@ -227,7 +248,7 @@ class SubmittionsController extends AppController {
 				$this->request->data['Submittion']['id'] = $id;
 
 				if ($this->Submittion->save($this->request->data)) {
-					$this->Session->setFlash(__('The Submittion has been saved.'));
+					$this->Session->setFlash(__('The Submittion has been saved.'), "Success");
 					return $this->redirect(array('action' => 'judge'));
 				} else {
 					$this->Session->setFlash(__('The Submittion could not be saved. Please, try again.'));
@@ -257,6 +278,44 @@ class SubmittionsController extends AppController {
 		}
 		return $max;
 	}
+
+    public function getUserLastSubmmitionTime($user_id)
+    {
+        $last_submmition = $this->Submittion->find('first',['order'=>['Submittion.created DESC'], 'conditions'=>['Submittion.user_id'=>$user_id]]);
+
+        if(empty($last_submmition))
+        {
+            $this->loadModel('Setting');
+            $startTime =  $this->Setting->find('first',['conditions'=>['Setting.key'=>'start_time']])['Setting']['value'];
+            return $startTime;
+        }
+
+        return $last_submmition['Submittion']['time'];
+    }
+
+    public function getUserSubmmitions($user_id)
+    {
+        $submmitions = $this->Submittion->find('all',['order'=>['Submittion.created DESC'], 'conditions'=>['Submittion.user_id'=>$user_id]]);
+        return $submmitions;
+    }
+
+    public function getResponseForUserProblem($user_id = null , $problem_id = null)
+    {
+        if($user_id == null || $problem_id == null)
+            return "--";
+
+        $submmitions = $this->Submittion->find('all', ['conditions'=>['Submittion.user_id' => $user_id, 'Submittion.problem_id' => $problem_id]]);
+
+        if( empty( $submmitions ) )
+            return '--';
+
+        foreach($submmitions as $submmition)
+        {
+            if( $submmition['Submittion']['response'] == 'Accepted' )
+                return $submmition['Submittion']['response'];
+        }
+        return $submmitions[count($submmitions)-1]['Submittion']['response'];
+    }
 
     /**
      * delete method

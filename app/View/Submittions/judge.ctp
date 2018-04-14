@@ -21,7 +21,8 @@
 							<td><?php echo h($submittion['Submittion']['response']); ?>&nbsp;</td>
 							<td class="actions">
 								<?php echo $this->Html->link(__('View'), array('action' => 'view', $submittion['Submittion']['id'])); ?>
-								<?php echo $this->Html->link(__('Judge Problem'), array('action' => 'judgeUserProblem', $submittion['Submittion']['id'])); ?>
+                                <?php echo $this->Html->link(__('Judge Manual'), array('action' => 'edit', $submittion['Submittion']['id'])); ?>
+								<?php echo $this->Html->link(__('Judge Auto'), array('action' => 'judgeUserProblem', $submittion['Submittion']['id'])); ?>
 							</td>
 						</tr>
 						

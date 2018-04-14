@@ -3,9 +3,12 @@
 	<?php echo $this->Form->create('Submittion'); ?>
 		<fieldset>
 			<legend><?php echo __('Judge Problem'); ?></legend>
-		<?php
+		<h1 style="font-size:20px;font-weight: bold;">UserName: </h1><?= nl2br(h($submittion['User']['username'])); ?>
 
-			echo nl2br(h($submittion['Submittion']['solution']));
+        <h1 style="font-size:20px;font-weight: bold;">Solution</h1>
+            <?= nl2br(h($submittion['Submittion']['solution'])); ?>
+        <?php
+
 			echo $this->element('respond');
 		?>
 		</fieldset>

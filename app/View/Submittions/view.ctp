@@ -17,25 +17,33 @@
 
 <div class="submittions view">
 <h1 style="font-size: 30px;"><?php echo __('Submittion'); ?><h1><br><br>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+
+                <th><?= __('Id'); ?></th>
+                <th><?= __('Problem'); ?></th>
+                <th><?= __('Compiler'); ?></th>
+                <th><?= __('Time'); ?></th>
+
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr style="font-weight: bold;">
+
+                <td><?= $submittion['Submittion']['id']; ?></td>
+                <td><?= $submittion['Problem']['name']; ?></td>
+                <td><?= $submittion['Submittion']['compiler']; ?></td>
+                <td><?= $submittion['Submittion']['time']; ?></td>
+
+            </tr>
+
+
+            </tbody>
+        </table>
 	<dl>
-		<h1 style="font-size: 20px;"><dt><?php echo __('Id'); ?></dt></h1>
-		<dd>
-			<?php echo $submittion['Submittion']['id']; ?>
-			&nbsp;
-		</dd>
-		<br>
-		<h1 style="font-size: 20px;"><dt><?php echo __('Problem'); ?></dt></h1>
-		<dd>
-			<?php echo h($submittion['Problem']['name']); ?>
-			&nbsp;
-		</dd>
-		<br>
-		<h1 style="font-size: 20px;"><dt><?php echo __('Time'); ?></dt></h1>
-		<dd>
-			<?php echo h($submittion['Submittion']['time']); ?>
-			&nbsp;
-		</dd>
-		<br>
+
 		<h1 style="font-size: 20px;"><dt><?php echo __('Solution'); ?></dt></h1>
 		<dd>
 			<code><?php echo nl2br(h($submittion['Submittion']['solution'])); ?></code>
