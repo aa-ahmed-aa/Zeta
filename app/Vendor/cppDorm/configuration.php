@@ -1,5 +1,5 @@
 <?php
-define('GCC','C:\MinGW\bin\g++.exe');
+define('GCC',dirname(dirname(dirname(__DIR__))).'\MinGW\bin\g++.exe');
 
 define('COMPILER_ERROR',0);
 define('WRONG_ANSWER',1);
