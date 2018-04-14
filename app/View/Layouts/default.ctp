@@ -88,8 +88,16 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 									}
 							?>
 						</li>
-						
-					</ul>
+
+                        <li>
+                            <?php
+                            if(AuthComponent::user('role') == 1){
+                                echo $this->HTML->link('Settings',array('controller' => 'Settings', 'action' => 'edit'));
+                            }
+                            ?>
+                        </li>
+
+                    </ul>
 				</div>
 				<!-- /#sidebar-wrapper -->
 			<?php endif; ?>
