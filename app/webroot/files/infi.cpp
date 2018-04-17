@@ -1,9 +1,10 @@
-# include <iostream>
-using namespace std;
+#include <iostream>
 
+using namespace std;
 int main()
 {
-	while(true)
-		cout << "Hello Man" << endl;
+	int x;
+	cin >> x;
+	cout << x;
 	return 0;
 }

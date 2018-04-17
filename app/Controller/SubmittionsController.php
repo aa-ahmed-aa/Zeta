@@ -98,7 +98,7 @@ class SubmittionsController extends AppController {
 			if (!$this->Submittion->exists($id)) {
 				throw new NotFoundException(__('Invalid submittion'));
 			}
-			
+
 			$options = array('conditions' => array('Submittion.id' => $id));
 			$this->set('submittion', $this->Submittion->find('first', $options));
 		
