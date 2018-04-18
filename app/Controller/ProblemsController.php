@@ -79,6 +79,8 @@ class ProblemsController extends AppController {
 				throw new NotFoundException(__('Invalid problem'));
 			}
 			if ($this->request->is(array('post', 'put'))) {
+                $this->loadModel("Testcase");
+                $this->Testcase->deleteAll([ 'TestCase.problem_id' => $this->request->data['Problem']['id']]);
 				if ($this->Problem->saveAll($this->request->data)) {
 					$this->Session->setFlash(__('The problem has been saved.'));
 					return $this->redirect(array('action' => 'index'));
