@@ -25,20 +25,27 @@
                          <?php
                             if($problem['response'] == "Accepted")
                             {
+                                $problem['response'] = "AC";
                                 $color = "color: #027901;";
                             }
                             else if($problem['response'] == "Compiler Error")
                             {
+                                $problem['response'] = "CE";
                                 $color = "color: #d20e00;";
                             }
                             else if($problem['response'] == "Wrong Answer")
                             {
+                                $problem['response'] = "WA";
                                 $color = "color: #d20e00;";
                             }
                             else if($problem['response'] == "Time Limit Exceeded")
                             {
                                 $problem['response'] = "TLE";
                                 $color = "color: #000ed2;";
+                            }
+                            else
+                            {
+                                $color = "color: #000000;";
                             }
                         ?>
                          <td style="<?= (isset($color) ? $color : "" ); ?>"><?= $problem['response']; ?></td>
