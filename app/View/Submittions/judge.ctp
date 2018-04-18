@@ -15,6 +15,20 @@
 				  <tbody>
 					<?php foreach ($submittions as $submittion): ?>
                         <?php
+                            if($submittion['Submittion']['response'] == 'Accepted')
+                            {
+                                $color = "color:#00ff00;";
+                            }else if($submittion['Submittion']['response'] == 'Wrong Answer')
+                            {
+                                $color = "color:#ff0000;";
+                            }else if($submittion['Submittion']['response'] == 'Time Limit Exceed')
+                            {
+                                $color = "color:#0000ff;";
+                            }else
+                            {
+                                $color = "color:#000000;";
+                            }
+
                             $is_automatic = true;
                             $user_solution = $submittion['Submittion']['solution'];
                             if( ( strpos($user_solution, 'cin') !== false  || strpos($user_solution, 'scanf') !== false ) && strpos($user_solution, 'freopen') === false )
@@ -26,9 +40,9 @@
 						<tr style="<?= ( $submittion['Submittion']['response'] != "--" ? "background-color:#007437;" : "" ); ?>">
 							<td><?php echo h($submittion['Submittion']['id']); ?>&nbsp;</td>
 							<td><?php echo h($submittion['Problem']['name']); ?>&nbsp;</td>
-							<td><?php echo h($submittion['User']['username']); ?>&nbsp;</td>
+							<td><a href="<?= Router::url(['controller'=>'Submittions','action'=>'account',$submittion['User']['id']]); ?>"><?php echo h($submittion['User']['username']); ?>&nbsp;</a></td>
 							<td><?php echo h($submittion['Submittion']['time']); ?>&nbsp;</td>
-							<td><?php echo h($submittion['Submittion']['response']); ?>&nbsp;</td>
+							<td style="<?= $color; ?>"><?php echo h($submittion['Submittion']['response']); ?>&nbsp;</td>
 							<td class="actions">
                                 <a href="<?= Router::url(array('action' => 'view', $submittion['Submittion']['id'])); ?>"><?= __('View'); ?></a>
                                 <a style="<?= ( $is_automatic ? "color: #e60202;" : "color: #066700;" ); ?>" href="<?= Router::url(array('action' => 'edit', $submittion['Submittion']['id'])); ?>"><?= __('Judge Manual'); ?></a>

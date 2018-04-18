@@ -1,8 +1,4 @@
-<?php
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,12 +15,28 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		echo $this->Html->css('simple-sidebar');
 		echo $this->Html->css('style');
 
+        echo $this->Html->script('jquery');
+
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 
 	?>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+
+        $.ajax({
+            url: '<?= Router::url( [ 'controller'=>'Notes','action'=>'get_first_active_note'] ); ?>'
+        }).done(function(data ) {
+                var data = JSON.parse(data);
+                if(data)
+                {
+                    confirm(data['Note']['question'] + '\n' + data['Note']['answer']);
+                }
+                else
+                    return false;
+            });
+    </script>
+
 </head>
 <body>
 		<div>
@@ -63,17 +75,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 									}
 							 ?>
 						</li>
-						
-						<li>
-							<?php 
-									if(AuthComponent::user()){
-										echo $this->HTML->link('Logout',array('controller' => 'users', 'action' => 'logout'));
-									}else{
-										echo $this->HTML->link('Login',array('controller' => 'users' , 'action' => 'login')
-										) ;
-									}
-							?>
-						</li>
+
 						<li>
 							<?php 
 									if(AuthComponent::user('role') == 1){
@@ -96,7 +98,27 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                             }
                             ?>
                         </li>
-
+                        <li>
+                            <?php
+                            if(AuthComponent::user('role') == 1){
+                                echo $this->HTML->link('Notes',array('controller' => 'Notes', 'action' => 'index'));
+                            }
+                            ?>
+                        </li>
+                        <?php  if(AuthComponent::user('role') == 1){ ?>
+                            <br/><br/><br/><br/><br/><br/><br/><br/>
+                            <br/><br/><br/><br/><br/>
+                        <?php } ?>
+                        <li>
+                            <?php
+                            if(AuthComponent::user()){
+                                echo $this->HTML->link('Logout',array('controller' => 'users', 'action' => 'logout'));
+                            }else{
+                                echo $this->HTML->link('Login',array('controller' => 'users' , 'action' => 'login')
+                                ) ;
+                            }
+                            ?>
+                        </li>
                     </ul>
 				</div>
 				<!-- /#sidebar-wrapper -->
@@ -109,6 +131,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		
 </body>
+
+
+
 </html>

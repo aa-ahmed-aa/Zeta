@@ -31,14 +31,14 @@
                             else if($problem['response'] == "Compiler Error")
                             {
                                 $problem['response'] = "CE";
-                                $color = "color: #d20e00;";
+                                $color = "color: #000000;";
                             }
                             else if($problem['response'] == "Wrong Answer")
                             {
                                 $problem['response'] = "WA";
                                 $color = "color: #d20e00;";
                             }
-                            else if($problem['response'] == "Time Limit Exceeded")
+                            else if($problem['response'] == "Time Limit Exceed")
                             {
                                 $problem['response'] = "TLE";
                                 $color = "color: #000ed2;";

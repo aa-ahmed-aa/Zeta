@@ -108,16 +108,26 @@ class ProblemsController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
-		$this->Problem->id = $id;
-		if (!$this->Problem->exists()) {
-			throw new NotFoundException(__('Invalid problem'));
-		}
-		$this->request->allowMethod('post', 'delete');
-		if ($this->Problem->delete()) {
-			$this->Session->setFlash(__('The problem has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The problem could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
+
+        if(AuthComponent::user('role') == 1)
+        {
+            $this->Problem->id = $id;
+            if (!$this->Problem->exists()) {
+                throw new NotFoundException(__('Invalid problem'));
+            }
+            $this->request->allowMethod('post', 'delete');
+            if ($this->Problem->delete()) {
+                $this->Session->setFlash(__('The problem has been deleted.'));
+            } else {
+                $this->Session->setFlash(__('The problem could not be deleted. Please, try again.'));
+            }
+            return $this->redirect(array('action' => 'index'));
+        }
+        else
+        {
+            $this->Session->setFlash(__('access Denied'));
+            return $this->redirect(array('controller'=>'Submittions','action' => 'index'));
+        }
+
 	}
 }
