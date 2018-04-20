@@ -41,7 +41,7 @@
 						<tr style="<?= ( $submittion['Submittion']['response'] != "--" ? "background-color:#007437;" : "" ); ?>">
 							<td><?php echo h($submittion['Submittion']['id']); ?>&nbsp;</td>
 							<td><?php echo h($submittion['Problem']['name']); ?>&nbsp;</td>
-							<td><a style="color:#fff000;" href="<?= Router::url(['controller'=>'Submittions','action'=>'account',$submittion['User']['id']]); ?>"><?php echo h($submittion['User']['username']); ?>&nbsp;</a></td>
+							<td><a style="color:#dfd200;" href="<?= Router::url(['controller'=>'Submittions','action'=>'account',$submittion['User']['id']]); ?>"><?php echo h($submittion['User']['username']); ?>&nbsp;</a></td>
 							<td><?php echo h($submittion['Submittion']['compiler']); ?>&nbsp;</td>
 							<td><?php echo h($submittion['Submittion']['time']); ?>&nbsp;</td>
 							<td style="<?= $color; ?>"><?php echo h($submittion['Submittion']['response']); ?>&nbsp;</td>

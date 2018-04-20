@@ -132,13 +132,22 @@ class Dorm {
         $time = time();
         $output = '';
         $process = proc_open($command, $descriptorspec, $pipes);
-            while($s= fgets($pipes[1], 1024)) {
-                $output .= $s;
-                if(time()-$time>5){
-                    system("taskkill /im program.exe /f");
-                    return TIME_LIMIT_EXCEEDED;
-                }
+
+        $sx=shell_exec("tasklist");
+        while( strpos($sx, "program.exe") != false ) {
+
+            $sx=shell_exec("tasklist");
+
+//            die($pipes[1]);
+//            if(isset($pipes[1]))
+//                $output .= fgets($pipes[1], 1024);
+
+            if(time()-$time>5){
+                system("taskkill /im program.exe /f");
+                return TIME_LIMIT_EXCEEDED;
             }
+//            die($output );
+        }
 
         return $output;
     }

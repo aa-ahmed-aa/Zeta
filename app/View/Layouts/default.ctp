@@ -40,7 +40,7 @@
         .sys_links{
             background-color: #000000;
             text-decoration: none;
-            color: #ffffff;
+            color:#ffffff;
             padding: 9px;
             border-radius: 10px;
             font-weight: bold;
@@ -51,6 +51,11 @@
             padding: 20px;
             text-shadow: 0 0 100px #ffffff;
             margin-left: 50px;
+        }
+        .logout{
+            position: fixed;
+            bottom: 0;
+            width: inherit;
         }
     </style>
 </head>
@@ -119,21 +124,21 @@
                             <?= $this->HTML->link('Notes',array('controller' => 'Notes', 'action' => 'index')); ?>
                         </li>
 
-                        <?php  if(AuthComponent::user('role') == 1){ ?>
-                            <br/><br/><br/><br/><br/><br/><br/><br/>
-                            <br/><br/><br/><br/><br/>
-                        <?php } ?>
+<!--                        --><?php // if(AuthComponent::user('role') == 1){ ?>
+<!--                            <br/><br/><br/><br/><br/><br/><br/><br/>-->
+<!--                            <br/><br/><br/><br/><br/>-->
+<!--                        --><?php //} ?>
 
-                            <?php
-                            if(AuthComponent::user()){?>
-                                <li class="sys_links">
-                                    <?= $this->HTML->link('Logout',array('controller' => 'users', 'action' => 'logout'));?>
-                                </li>
-                            <?php } else{ ?>
-                                <li class="sys_links">
-                                    <?= $this->HTML->link('Login',array('controller' => 'users' , 'action' => 'login')) ; ?>
-                                </li>
-                            <?php }?>
+                        <?php
+                        if(AuthComponent::user()){?>
+                            <li class="sys_links logout">
+                                <?= $this->HTML->link('Logout',array('controller' => 'users', 'action' => 'logout'));?>
+                            </li>
+                        <?php } else{ ?>
+                            <li class="sys_links logout">
+                                <?= $this->HTML->link('Login',array('controller' => 'users' , 'action' => 'login')) ; ?>
+                            </li>
+                        <?php }?>
 
                     </ul>
 				</div>

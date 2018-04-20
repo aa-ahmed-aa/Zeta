@@ -52,12 +52,9 @@ class UsersController extends AppController {
  */
 	public function index() {
 		if(AuthComponent::user('role') == 1 ){
-			$this->User->recursive = 0;
-			$this->set('users', $this->Paginator->paginate());
-			
-			$this->loadModel('Submittions');
-			$submittions = $this->Submittions->find('all');
-			$this->set('submittions' ,$submittions);
+            $this->User->recursive = 1;
+			$users = $this->User->find('all',['order'=>['User.rank DESC']] );
+			$this->set('users', $users);
 		}
 		else 
 		{

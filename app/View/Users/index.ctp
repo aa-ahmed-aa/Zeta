@@ -1,6 +1,8 @@
-
+<?php //dd($users); ?>
 <div class="problems index">
-    <?= $this->Html->link(__('Rank All Users'), array('controller' => 'users','action' => 'rankAllUsers' )); ?>
+
+    <?= $this->Html->link(__('Rank All Users'),array('controller' => 'users','action' => 'rankAllUsers' ),array('class'=>'sys_links')); ?>
+
     <br/>
     <br/>
     <br/>
@@ -21,22 +23,10 @@
 				?>
 				
 			<tr>
-				<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
-				<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
-				<td><?php echo h($user['User']['rank']); ?>&nbsp;</td>
-				<td><?php 
-					$counter = 0;
-					$idd = $user['User']['id'];
-					foreach($submittions as $submition)
-					{
-						if($submition['Submittions']['user_id'] == $idd)
-						{
-							$counter++;
-						}
-					}
-					echo $counter;
-					
-				?>&nbsp;</td>
+				<td><?= h($user['User']['id']); ?>&nbsp;</td>
+				<td><?= h($user['User']['username']); ?>&nbsp;</td>
+				<td><?= h($user['User']['rank']); ?>&nbsp;</td>
+				<td><?= count($user['Submittion']); ?>&nbsp;</td>
 				<td class="actions">
 					<?php echo $this->Html->link(__('View Submittions'), array('controller' => 'submittions','action' => 'account', $user['User']['id'])); ?>
 					<?php echo $this->Html->link(__('Rank user'), array('action' => 'rankUser', $user['User']['id'])); ?>
