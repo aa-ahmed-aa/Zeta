@@ -7,6 +7,7 @@
 						<th>id</th>
 						<th>Problem Name</th>
                         <th>User Name</th>
+                        <th>Language</th>
 						<th>Time</th>
 						<th>Response</th>
 						<th>Actoins</th>
@@ -40,7 +41,8 @@
 						<tr style="<?= ( $submittion['Submittion']['response'] != "--" ? "background-color:#007437;" : "" ); ?>">
 							<td><?php echo h($submittion['Submittion']['id']); ?>&nbsp;</td>
 							<td><?php echo h($submittion['Problem']['name']); ?>&nbsp;</td>
-							<td><a href="<?= Router::url(['controller'=>'Submittions','action'=>'account',$submittion['User']['id']]); ?>"><?php echo h($submittion['User']['username']); ?>&nbsp;</a></td>
+							<td><a style="color:#fff000;" href="<?= Router::url(['controller'=>'Submittions','action'=>'account',$submittion['User']['id']]); ?>"><?php echo h($submittion['User']['username']); ?>&nbsp;</a></td>
+							<td><?php echo h($submittion['Submittion']['compiler']); ?>&nbsp;</td>
 							<td><?php echo h($submittion['Submittion']['time']); ?>&nbsp;</td>
 							<td style="<?= $color; ?>"><?php echo h($submittion['Submittion']['response']); ?>&nbsp;</td>
 							<td class="actions">

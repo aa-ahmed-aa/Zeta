@@ -1,10 +1,7 @@
-<style>
-
-</style>
-
-
 <div class="notes index">
-    <a href="<?= Router::url(['action'=>'add_question']); ?>">Add Question</a>
+    <?php if(AuthComponent::user('role') == 1): ?>
+        <a class="sys_links" href="<?= Router::url(['action'=>'add_question']); ?>">Add Question</a>
+    <?php endif; ?>
 
     <table class="table table-hover">
         <thead>
@@ -32,10 +29,10 @@
                     <td><?= $note['Note']['show']; ?></td>
 
                     <td>
-                        <a class="edit" href="<?= Router::url(['action'=>'edit_question',$note['Note']['id']]); ?>">Edit</a>
+                        <a class="sys_links" href="<?= Router::url(['action'=>'edit_question',$note['Note']['id']]); ?>">Edit</a>
                     </td>
-                    <td>
-                        <?= $this->Form->postLink(__('Delete'), array('action' => 'delete_question', $note['Note']['id']), array(), __('Are you sure you want to delete # %s?', $note['Note']['id'])); ?>
+                    <td >
+                        <?= $this->Form->postLink(__('Delete'), array('action' => 'delete_question', $note['Note']['id']), array('class'=>"sys_links"), __('Are you sure you want to delete # %s?', $note['Note']['id'])); ?>
                     </td>
                 <?php endif; ?>
             </tr>

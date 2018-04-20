@@ -103,12 +103,16 @@ class Dorm {
         }
 
         //compare the output file with user output file
-        $user_output = file_get_contents($this->getCompilationPath() . DS . $output_file['file_name']);
+        $output_file_name = $this->getCompilationPath() . DS . $output_file['file_name'];
+        $user_output = file_get_contents($output_file_name);
         $correct_output = $output_file['file_content'];
         if( $user_output  == $correct_output )
         {
+            $this->cleanCompilationFolder([$output_file_name]);
             return ACCEPTED;
         }
+        $this->cleanCompilationFolder([$output_file_name]);
+
         return WRONG_ANSWER;
     }
 

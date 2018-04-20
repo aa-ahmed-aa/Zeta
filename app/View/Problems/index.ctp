@@ -3,14 +3,13 @@
 	<table class="table table-hover">
 	  <thead>
 		<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
+
+			<th style="font-weight: bold;font-size: 20px;"><?= __('Problem Name'); ?></th>
 		</tr>
 	  </thead>
 	  <tbody>
 		<?php foreach ($problems as $problem): ?>
 			<tr>
-				<td><?php echo h($problem['Problem']['id']); ?>&nbsp;</td>
 				<td><?php echo h($problem['Problem']['name']); ?>&nbsp;</td>
 				
 				<td class="actions">

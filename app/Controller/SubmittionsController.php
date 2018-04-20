@@ -174,7 +174,7 @@ class SubmittionsController extends AppController {
 
             if($response == TIME_LIMIT_EXCEEDED)
             {
-                $this->__save_respond($submition['Submittion']['id'],"Time Limit Exceeded",true);
+                $this->__save_respond($submition['Submittion']['id'],"Time Limit Exceed",true);
                 break;
             }
 
@@ -192,7 +192,7 @@ class SubmittionsController extends AppController {
         $sub->id = $submmition_id;
         $sub->response = $respond;
 
-        $flash_type = ( $respond == "Accepted" ? "Success" : ( $respond == "Time Limit Exceeded" ? "Time" : "Fail" ) );
+        $flash_type = ( $respond == "Accepted" ? "Success" : ( $respond == "Time Limit Exceed" ? "Time" : "Fail" ) );
 
         if ( $this->Submittion->save($sub) )
         {
