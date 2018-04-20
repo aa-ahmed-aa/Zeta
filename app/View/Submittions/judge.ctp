@@ -48,7 +48,9 @@
 							<td class="actions">
                                 <a href="<?= Router::url(array('action' => 'view', $submittion['Submittion']['id'])); ?>"><?= __('View'); ?></a>
                                 <a style="<?= ( $is_automatic ? "color: #e60202;" : "color: #066700;" ); ?>" href="<?= Router::url(array('action' => 'edit', $submittion['Submittion']['id'])); ?>"><?= __('Judge Manual'); ?></a>
-                                <a style="<?= ( $is_automatic ? "color: #066700;" : "color: #e60202;" ); ?>" href="<?= Router::url(array('action' => 'judgeUserProblem', $submittion['Submittion']['id'])); ?>"><?= __('Judge Auto'); ?></a>
+                                <?php if($submittion['Submittion']['compiler'] != "Java"): ?>
+                                    <a style="<?= ( $is_automatic ? "color: #066700;" : "color: #e60202;" ); ?>" href="<?= Router::url(array('action' => 'judgeUserProblem', $submittion['Submittion']['id'])); ?>"><?= __('Judge Auto'); ?></a>
+                                <?php endif; ?>
 							</td>
 						</tr>
 						

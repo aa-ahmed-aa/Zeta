@@ -43,30 +43,45 @@ class Dorm {
     {
            foreach($files_to_delete as $file)
            {
-               unlink($file);
+               if(file_exists($file))
+                   unlink($file);
            }
     }
 
     /**
      * this function will create a temp cpp file to run the code and will return the response
      * @param $code => the code cpp or java
+     * @param $compiler => compiler we will use to compile this code
      * @return bool => true if the code run successfult, false otherwise
      */
-    public function compile( $code )
+    public function compile( $code, $compiler )
     {
         $random_name = rand(0,999999)."_".time();
-        $file_name = $this->getCompilationPath() . DS . $random_name . ".cpp";
+
+        if($compiler == "C")
+        {
+            $file_name = $this->getCompilationPath() . DS . $random_name . ".c";
+        }else if($compiler == "C++")
+        {
+            $file_name = $this->getCompilationPath() . DS . $random_name . ".cpp";
+        }
+
 
         file_put_contents($file_name,$code);
 
         $executable = $this->getCompilationPath() . DS . "program.exe";
 
-        $command = GCC . " -o ". $executable ." ".$file_name." 2>&1";
-
+        if($compiler == "C")
+        {
+            $command = GCC . " -o ". $executable ." ".$file_name." 2>&1";
+        }else if($compiler == "C++")
+        {
+            $command = GPlusPLus . " -o ". $executable ." ".$file_name." 2>&1";
+        }
         exec($command , $output, $status);
 
 //        $this->cleanCompilationFolder([$file_name, $executable]);
-
+//        dd($command);
         if( empty($output) )
         {
             return true;
@@ -106,6 +121,7 @@ class Dorm {
         $output_file_name = $this->getCompilationPath() . DS . $output_file['file_name'];
         $user_output = file_get_contents($output_file_name);
         $correct_output = $output_file['file_content'];
+
         if( $user_output  == $correct_output )
         {
             $this->cleanCompilationFolder([$output_file_name]);

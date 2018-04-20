@@ -148,11 +148,13 @@ class SubmittionsController extends AppController {
         file_put_contents($dorm->getCompilationPath() . DS . $correct_input_file_name, $Testcases[0]['input_text']);
 
         //compile the code once this process will output the exe file for user code
-        if( ! $dorm->compile($submition['Submittion']['solution']) )
+        if( ! $dorm->compile($submition['Submittion']['solution'], $submition['Submittion']['compiler'] ) )
         {
             //will redirect
             $this->__save_respond($submition['Submittion']['id'], "Compiler Error", true);
         }
+
+//        dd("Compiles");
 
         //loop throw the test cases and prepare the input and output files
         foreach($Testcases as $testcase)

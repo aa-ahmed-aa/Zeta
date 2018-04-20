@@ -7,7 +7,7 @@
 		
 		echo $this->element('find',array('problem_id'=>$problem_id) );
         echo $this->Form->input('compiler', array(
-            'options' => ["c/c++"=>"c/c++","java"=>"java"],
+            'options' => ["C"=>"C","C++"=>"C++","Java"=>"Java"],
             'empty' => '(choose Compiler)',
             'required'=>true,
             'style' => 'font-weight: bold;'

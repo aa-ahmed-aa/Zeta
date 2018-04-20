@@ -7,11 +7,10 @@ class NotesController extends AppController {
         if(AuthComponent::user('role') == 1){
             $notes = $this->Note->find('all');
             $this->set('notes', $notes);
-        }else if(AuthComponent::user('role') == 0){
+        }else{
             $notes = $this->Note->find('all',['conditions'=>['Note.show'=>1]]);
             $this->set('notes', $notes);
         }
-
 	}
 
     public function add_question()
