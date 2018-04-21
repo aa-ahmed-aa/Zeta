@@ -4898,3 +4898,51 @@ Request URL: /Zeta/css/bootstrap.min.css.map
 Stack Trace:
 #0 C:\xampp\htdocs\Zeta\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2018-04-21 11:19:20 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\xampp\htdocs\Zeta\app\Vendor\cppDorm\Dorm.php, line 85]
+2018-04-21 11:19:21 Error: [InternalErrorException] Internal Server Error
+Request URL: /Zeta/submittions/judgeUserProblem/7
+Stack Trace:
+#0 C:\xampp\htdocs\Zeta\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'C:\xampp\htdocs...', 85)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'C:\xampp\htdocs...', 85, Array)
+#2 C:\xampp\htdocs\Zeta\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'C:\xampp\htdocs...', 85, Array)
+#3 C:\xampp\htdocs\Zeta\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-21 11:19:45 Warning: Warning (2): file_get_contents(C:\xampp\htdocs\Zeta\app\webroot\files\84Coders\Harry.out): failed to open stream: No such file or directory in [C:\xampp\htdocs\Zeta\app\Vendor\cppDorm\Dorm.php, line 122]
+Trace:
+file_get_contents - [internal], line ??
+Dorm::run() - APP\Vendor\cppDorm\Dorm.php, line 122
+SubmittionsController::judgeUserProblem() - APP\Controller\SubmittionsController.php, line 168
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 108
+
+2018-04-21 14:37:50 Error: [MissingControllerException] Controller class ZetaController could not be found.
+Exception Attributes: array (
+  'class' => 'ZetaController',
+  'plugin' => NULL,
+)
+Request URL: /Zeta/problems/view/59
+Stack Trace:
+#0 C:\xampp\htdocs\Zeta\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-21 14:38:12 Error: [MissingControllerException] Controller class ZetaController could not be found.
+Exception Attributes: array (
+  'class' => 'ZetaController',
+  'plugin' => NULL,
+)
+Request URL: /Zeta/users/rankAllUsers
+Stack Trace:
+#0 C:\xampp\htdocs\Zeta\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-21 14:54:36 Error: [MissingControllerException] Controller class RegisterController could not be found.
+Exception Attributes: array (
+  'class' => 'RegisterController',
+  'plugin' => NULL,
+)
+Request URL: /register
+Stack Trace:
+#0 C:\xampp\htdocs\Zeta\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
