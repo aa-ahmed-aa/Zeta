@@ -2,7 +2,7 @@
 Zeta :clock10: is an offline judge for programming contests :star2:
 <br>
 
-![Alt text](https://github.com/aa-ahmed-aa/Zeta-Project/blob/master/screenshots/welcome.PNG "Laura Landing page")
+![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/welcome.PNG "Zeta Login Page")
 
 ## :guardsman: Features
 - Contestants auto ranking.
@@ -17,7 +17,7 @@ after judging a problem the contestant can get one of 4 responses :- <br>
 - TLE => TIME LIMIT EXCEEDED
 - CE => COMPILER ERROR
 
-![Alt text](https://github.com/aa-ahmed-aa/Zeta-Project/blob/master/screenshots/judge.PNG "Laura Landing page")
+![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/judge.PNG "Judge")
 
 green judge mean it is recommended to use this type of judging for this submmition
 
@@ -41,15 +41,28 @@ green judge mean it is recommended to use this type of judging for this submmiti
 ```
 
 - User rank <br>
-        Users are ranked according to the highest sum of the ACCEPTED problems rank.
+    - Users are ranked according to the highest sum of the ACCEPTED problems rank.
+    - Scoreboard Time is the time of the user last submition.
+
+    ![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/scoreboard.PNG "Judge")
+
+Time is the Time of the user last Submmition
+
 
 ## PreRequirements
 - xampp <br>
-    <p style="color:red;">if you have any problem with the calss named String it is according to PHP version read this to fix the problem : https://github.com/cakephp/cakephp/issues/7573</p>
+    <span style="color: red">if you have any problem with the calss named String it is according to PHP version read this to fix the problem : https://github.com/cakephp/cakephp/issues/7573</span>
 - GCC Compiler <br>
-    i used MinGw you can find it <a href="https://nuwen.net/mingw.html" >Here</a>
-## Installation
+    i used <a href="https://nuwen.net/mingw.html" >Mingw</a>
 
+## Installation
+    - Download the Repo `git clone https://github.com/aa-ahmed-aa/Zeta` or via the download button.
+    - Import the database file in the `Database/zeta_4.sql` to phpmyadmin.
+    - Go to `app/Config/database.php` and update username and password to your credential
+    - Download <a href="https://nuwen.net/mingw.html" >Mingw</a> compiler and copy it to your Zeta path.
+    - Now Goto <a hrefhttp://localhost/Zeta">http://localhost/Zeta</a> and user username : ahmedkhaled, password : ahmed to login (this is the default admin account you can use it to add other admins and contestant then delete it later)
+
+# <span style="color: red">Before starting a contest you should go to Settings and set the starting time of the contest this time is used to ranks problems and contestant in the scoreboard</span>
 ## :construction: Contribution & Future work
 
 

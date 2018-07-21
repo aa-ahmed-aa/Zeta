@@ -4968,3 +4968,57 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
 [main] - APP\webroot\index.php, line 108
 
+2018-07-21 13:27:48 Error: [MissingControllerException] Controller class ZetaController could not be found.
+Exception Attributes: array (
+  'class' => 'ZetaController',
+  'plugin' => NULL,
+)
+Request URL: /zeta
+Stack Trace:
+#0 C:\xampp\htdocs\Zeta\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-07-21 13:27:55 Error: [MissingControllerException] Controller class ZetaController could not be found.
+Exception Attributes: array (
+  'class' => 'ZetaController',
+  'plugin' => NULL,
+)
+Request URL: /Zeta
+Stack Trace:
+#0 C:\xampp\htdocs\Zeta\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-07-21 13:28:10 Error: [MissingControllerException] Controller class ZetaController could not be found.
+Exception Attributes: array (
+  'class' => 'ZetaController',
+  'plugin' => NULL,
+)
+Request URL: /Zeta/login
+Stack Trace:
+#0 C:\xampp\htdocs\Zeta\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-07-21 13:28:21 Error: [MissingControllerException] Controller class ZetaController could not be found.
+Exception Attributes: array (
+  'class' => 'ZetaController',
+  'plugin' => NULL,
+)
+Request URL: /Zeta/submittions
+Stack Trace:
+#0 C:\xampp\htdocs\Zeta\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-07-21 13:28:36 Error: [MissingControllerException] Controller class ZetaController could not be found.
+Exception Attributes: array (
+  'class' => 'ZetaController',
+  'plugin' => NULL,
+)
+Request URL: /Zeta/submittions?debug=2
+Stack Trace:
+#0 C:\xampp\htdocs\Zeta\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-07-21 13:28:41 Error: [MissingControllerException] Controller class ZetaController could not be found.
+Exception Attributes: array (
+  'class' => 'ZetaController',
+  'plugin' => NULL,
+)
+Request URL: /Zeta/submittions
+Stack Trace:
+#0 C:\xampp\htdocs\Zeta\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
