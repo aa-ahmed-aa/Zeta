@@ -12,14 +12,14 @@ Zeta is an offline judge for programming contests :star2:
 ## :triangular_flag_on_post: Judging and Ranking
 ### Judging
 after judging a problem the contestant can get one of 4 responses :- <br>
-    - AC => ACCEPTED
-    - WA => WRONG ANSWER
-    - TLE => TIME LIMIT EXCEEDED
-    - CE => COMPILER ERROR
+- AC => ACCEPTED
+- WA => WRONG ANSWER
+- TLE => TIME LIMIT EXCEEDED
+- CE => COMPILER ERROR
 
-    ![Alt text](https://github.com/aa-ahmed-aa/Zeta-Project/blob/master/screenshots/judge.PNG "Laura Landing page")
+![Alt text](https://github.com/aa-ahmed-aa/Zeta-Project/blob/master/screenshots/judge.PNG "Laura Landing page")
 
-    green judge mean it is recommended to use this type of judging for this submmition
+green judge mean it is recommended to use this type of judging for this submmition
 
 
 - Automatic vS Manual Judging
