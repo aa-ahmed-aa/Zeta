@@ -28,7 +28,7 @@ green judge mean it is recommended to use this type of judging for this submmiti
     - Manual Judging
         Adding the response manually to this submition because Sometimes users didn't follow the rules of the contest and read or write from i/o Stream Not File.<br>
 
-### Ranking
+### :oncoming_taxi: Ranking
 - Submition rank <br>
     Submition are ranked according to time and problem rank so the ranking equation is :- <br>
 ```php
@@ -56,13 +56,13 @@ Time is the Time of the user last Submmition
     i used <a href="https://nuwen.net/mingw.html" >Mingw</a>
 
 ## Installation
-    - Download the Repo `git clone https://github.com/aa-ahmed-aa/Zeta` or via the download button.
-    - Import the database file in the `Database/zeta_4.sql` to phpmyadmin.
-    - Go to `app/Config/database.php` and update username and password to your credential
-    - Download <a href="https://nuwen.net/mingw.html" >Mingw</a> compiler and copy it to your Zeta path.
-    - Now Goto <a hrefhttp://localhost/Zeta">http://localhost/Zeta</a> and user username : ahmedkhaled, password : ahmed to login (this is the default admin account you can use it to add other admins and contestant then delete it later)
+- Download the Repo `git clone https://github.com/aa-ahmed-aa/Zeta` or via the download button.
+- Import the database file in the `Database/zeta_4.sql` to phpmyadmin.
+- Go to `app/Config/database.php` and update username and password to your credential
+- Download <a href="https://nuwen.net/mingw.html" >Mingw</a> compiler and copy it to your Zeta path.
+- Now Goto <a hrefhttp://localhost/Zeta">http://localhost/Zeta</a> and user username : ahmedkhaled, password : ahmed to login (this is the default admin account you can use it to add other admins and contestant then delete it later)
 
-# <span style="color: red">Before starting a contest you should go to Settings and set the starting time of the contest this time is used to ranks problems and contestant in the scoreboard</span>
+<span style="font color: red">Before starting a contest you should go to Settings and set the starting time of the contest this time is used to ranks problems and contestant in the scoreboard</span>
 ## :construction: Contribution & Future work
 
 
