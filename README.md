@@ -29,18 +29,18 @@ green judge mean it is recommended to use this type of judging for this submmiti
         Adding the response manually to this submition because Sometimes users didn't follow the rules of the contest and read or write from i/o Stream Not File.<br>
 
 ### Ranking
-    -Submition rank
-        Submition are ranked according to time and problem rank so the ranking equation is :- <br>
-        ```
-                                                             Tstart - Tsub
-               submition_rank =   problem_rank    -    _________________________    -    ( $wrongAnswerCount * 5 )
-                                                                   60
+-Submition rank
+    Submition are ranked according to time and problem rank so the ranking equation is :- <br>
+    ```
+                                                         Tstart - Tsub
+           submition_rank =   problem_rank    -    _________________________    -    ( $wrongAnswerCount * 5 )
+                                                               60
 
-               Minimum Submmition Rank is = 40% Of problem rank
+           Minimum Submmition Rank is = 40% Of problem rank
 
-        ```
+    ```
 
-    -User rank
+-User rank
         Users are ranked according to the highest sum of the ACCEPTED problems rank.
 
 ## PreRequirements
