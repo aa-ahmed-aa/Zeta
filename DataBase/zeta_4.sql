@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`, `rank`) VALUES
-(105, 'ahmed', 'd3a89dd521aea9dbd8f9d8a08e7394d6f0a9f71d', 1, 0);
+(1, 'ahmedkhaled', 'd3a89dd521aea9dbd8f9d8a08e7394d6f0a9f71d', 1, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
