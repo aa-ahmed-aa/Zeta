@@ -5,9 +5,9 @@ Zeta is an offline judge for programming contests :star2:
 ![Alt text](https://github.com/aa-ahmed-aa/Zeta-Project/blob/master/screenshots/welcome.PNG "Laura Landing page")
 
 ## :guardsman: Features
-    - Contestants auto ranking.<br>
-    - Can add clarifications for problems.<br>
-    - Auto judging for c/c++ solutions (java comming soon).<br>
+- Contestants auto ranking.
+- Can add clarifications for problems.
+- Auto judging for c/c++ solutions (java comming soon).
 
 ## :triangular_flag_on_post: Judging and Ranking
 ### Judging
@@ -31,7 +31,7 @@ green judge mean it is recommended to use this type of judging for this submmiti
 ### Ranking
 -Submition rank
     Submition are ranked according to time and problem rank so the ranking equation is :- <br>
-    ```
+    ```php
                                                          Tstart - Tsub
            submition_rank =   problem_rank    -    _________________________    -    ( $wrongAnswerCount * 5 )
                                                                60
