@@ -4955,3 +4955,16 @@ Request URL: /css/bootstrap.min.css.map
 Stack Trace:
 #0 C:\xampp\htdocs\Zeta\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2018-07-21 12:04:18 Warning: Warning (2): session_regenerate_id(): Session object destruction failed in [C:\xampp\htdocs\Zeta\lib\Cake\Model\Datasource\CakeSession.php, line 723]
+Trace:
+session_regenerate_id - [internal], line ??
+CakeSession::renew() - CORE\Cake\Model\Datasource\CakeSession.php, line 723
+SessionComponent::renew() - CORE\Cake\Controller\Component\SessionComponent.php, line 137
+AuthComponent::login() - CORE\Cake\Controller\Component\AuthComponent.php, line 604
+UsersController::login() - APP\Controller\UsersController.php, line 31
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 108
+
