@@ -1,5 +1,5 @@
 # Zeta :clock10:
-Zeta :clock10: is an offline judge for programming contests :star2:
+Zeta :clock10: is an offline judge for programming contests :star2: <font color="green"> Some green text </font>
 <br>
 
 ![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/welcome.PNG "Zeta Login Page")
