@@ -65,7 +65,7 @@ Time is the Time of the user last Submmition
 > # Before starting a contest you should go to Settings and set the starting time of the contest this time is used to ranks problems and contestant in the scoreboard
 
 ## :construction: Contribution
-> Compilation and Running is based on this package (<a href="https://github.com/aa-ahmed-aa/Dorm">DORM</a>) so feel free to have a look.
+> Compilation and Running is based on this package (<a href="https://github.com/aa-ahmed-aa/Dorm">DORM</a>) so feel free to have a look.<br>
 If you find any problem feel free to open issues with any error you find or features you think we can add to Zeta, if you have any problem while you are installing zeta please feel free to contact me at __ahmedkhaled36@hotmail.com__
 
 
