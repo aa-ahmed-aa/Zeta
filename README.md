@@ -61,10 +61,10 @@ Time is the Time of the user last Submmition
 - Go to `app/Config/database.php` and update username and password to your credential
 - Download <a href="https://nuwen.net/mingw.html" >Mingw</a> compiler and copy it to your Zeta path.
 - Now Goto <a href="http://localhost/Zeta">http://localhost/Zeta</a> and user username : ahmedkhaled, password : ahmed to login (this is the default admin account you can use it to add other admins and contestant then delete it later)
+<br>
+These are <b style='color:red'>red words</b>.<br>
+Before starting a contest you should go to Settings and set the starting time of the contest this time is used to ranks problems and contestant in the scoreboard
 
-```diff
-- Before starting a contest you should go to Settings and set the starting time of the contest this time is used to ranks problems and contestant in the scoreboard
-```
 ## :construction: Contribution & Future work
 
 
