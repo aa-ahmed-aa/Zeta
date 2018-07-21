@@ -1,6 +1,6 @@
 # Zeta
 Zeta is an offline judge for programming contests
-![Alt text](https://github.com/aa-ahmed-aa/Zeta-Project/screenshots/blob/master/welcome.PNG "Laura Landing page")
+![Alt text](https://github.com/aa-ahmed-aa/Zeta-Project/blob/master/screenshots/welcome.PNG "Laura Landing page")
 ## Features
 
 ## Judging and Ranking
