@@ -29,7 +29,7 @@ green judge mean it is recommended to use this type of judging for this submmiti
         Adding the response manually to this submition because Sometimes users didn't follow the rules of the contest and read or write from i/o Stream Not File.<br>
 
 ### Ranking
-- Submition rank
+- Submition rank <br>
     Submition are ranked according to time and problem rank so the ranking equation is :- <br>
 ```php
                                                      Tstart - Tsub
@@ -40,7 +40,7 @@ green judge mean it is recommended to use this type of judging for this submmiti
 
 ```
 
-- User rank
+- User rank <br>
         Users are ranked according to the highest sum of the ACCEPTED problems rank.
 
 ## PreRequirements
