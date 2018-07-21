@@ -1,5 +1,5 @@
-# Zeta :skull:
-Zeta is an offline judge for programming contests :star2:
+# Zeta :clock10:
+Zeta :clock10: is an offline judge for programming contests :star2:
 <br>
 
 ![Alt text](https://github.com/aa-ahmed-aa/Zeta-Project/blob/master/screenshots/welcome.PNG "Laura Landing page")
@@ -22,7 +22,7 @@ after judging a problem the contestant can get one of 4 responses :- <br>
 green judge mean it is recommended to use this type of judging for this submmition
 
 
-- Automatic vS Manual Judging
+- Automatic :vs: Manual Judging
     - Automatic judging
         It will run the contestant solution and compare it with the testcases given to the that problem and respond to the that user submition .<br>
     - Manual Judging
@@ -44,10 +44,13 @@ green judge mean it is recommended to use this type of judging for this submmiti
         Users are ranked according to the highest sum of the ACCEPTED problems rank.
 
 ## PreRequirements
-
+- xampp
+    <p style="color:red;">if you have any problem with the calss named String it is according to PHP version read this to fix the problem : https://github.com/cakephp/cakephp/issues/7573</p>
+- GCC Compiler
+    i used MinGw you can find it <a href="https://nuwen.net/mingw.html" >Here</a>
 ## Installation
 
-## Contribution & Future work
+## :construction: Contribution & Future work
 
 
-***if you have any problem with the calss named String it is according to PHP version read this to fix the problem : https://github.com/cakephp/cakephp/issues/7573
+
