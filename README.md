@@ -31,14 +31,14 @@ green judge mean it is recommended to use this type of judging for this submmiti
 ### Ranking
 -Submition rank
     Submition are ranked according to time and problem rank so the ranking equation is :- <br>
-    ```php
-                                                         Tstart - Tsub
-           submition_rank =   problem_rank    -    _________________________    -    ( $wrongAnswerCount * 5 )
-                                                               60
+```php
+                                                     Tstart - Tsub
+       submition_rank =   problem_rank    -    _________________________    -    ( $wrongAnswerCount * 5 )
+                                                           60
 
-           Minimum Submmition Rank is = 40% Of problem rank
+       Minimum Submmition Rank is = 40% Of problem rank
 
-    ```
+```
 
 -User rank
         Users are ranked according to the highest sum of the ACCEPTED problems rank.
