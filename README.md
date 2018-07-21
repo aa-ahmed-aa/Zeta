@@ -44,9 +44,9 @@ green judge mean it is recommended to use this type of judging for this submmiti
         Users are ranked according to the highest sum of the ACCEPTED problems rank.
 
 ## PreRequirements
-- xampp
+- xampp <br>
     <p style="color:red;">if you have any problem with the calss named String it is according to PHP version read this to fix the problem : https://github.com/cakephp/cakephp/issues/7573</p>
-- GCC Compiler
+- GCC Compiler <br>
     i used MinGw you can find it <a href="https://nuwen.net/mingw.html" >Here</a>
 ## Installation
 
