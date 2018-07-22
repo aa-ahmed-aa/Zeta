@@ -33,7 +33,7 @@ after judging a problem the contestant can get one of 4 responses :- <br>
     Submition are ranked according to time and problem rank so the ranking equation is :- <br>
 ```php
                                                      Tstart - Tsub
-       submition_rank =   problem_rank    -    _________________________    -    ( $wrongAnswerCount * 5 )
+       submition_rank =   problem_rank    -    _________________________    -    (    wrongAnswerCount   *   5    )
                                                            60
 
        Minimum Submmition Rank is = 40% Of problem rank
