@@ -1,5 +1,5 @@
-# Zeta ⚖
-Zeta ⚖ is an offline judge for programming contests :trophy:
+# Zeta :dragon:
+Zeta :dragon: is an offline judge for programming contests :trophy:
 <br>
 
 ![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/welcome.PNG "Zeta Login Page")
