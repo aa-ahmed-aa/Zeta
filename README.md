@@ -10,43 +10,43 @@ Zeta :clock10: is an offline judge for programming contests :postal_horn:
 - Auto judging for c/c++ solutions (java comming soon).
 
 ## :triangular_flag_on_post: Judging and Ranking
-    ### :pushpin: Judging
-    after judging a problem the contestant can get one of 4 responses :- <br>
-    - AC => ACCEPTED
-    - WA => WRONG ANSWER
-    - TLE => TIME LIMIT EXCEEDED
-    - CE => COMPILER ERROR
+#### :pushpin: Judging
+after judging a problem the contestant can get one of 4 responses :- <br>
+- AC => ACCEPTED
+- WA => WRONG ANSWER
+- TLE => TIME LIMIT EXCEEDED
+- CE => COMPILER ERROR
 
-    ![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/judge.PNG "Judge")
+![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/judge.PNG "Judge")
 
-    green judge mean it is recommended to use this type of judging for this submmition
+green judge mean it is recommended to use this type of judging for this submmition
 
 
-    - Automatic :vs: Manual Judging
-        - Automatic judging
-            It will run the contestant solution and compare it with the testcases given to the that problem and respond to the that user submition .<br>
-        - Manual Judging
-            Adding the response manually to this submition because Sometimes users didn't follow the rules of the contest and read or write from i/o Stream Not File.<br>
+- Automatic :vs: Manual Judging
+    - Automatic judging
+        It will run the contestant solution and compare it with the testcases given to the that problem and respond to the that user submition .<br>
+    - Manual Judging
+        Adding the response manually to this submition because Sometimes users didn't follow the rules of the contest and read or write from i/o Stream Not File.<br>
 
-    ### :oncoming_taxi: Ranking
-    - Submition rank <br>
-        Submition are ranked according to time and problem rank so the ranking equation is :- <br>
-    ```php
-                                                         Tstart - Tsub
-           submition_rank =   problem_rank    -    _________________________    -    ( $wrongAnswerCount * 5 )
-                                                               60
+#### :oncoming_taxi: Ranking
+- Submition rank <br>
+    Submition are ranked according to time and problem rank so the ranking equation is :- <br>
+```php
+                                                     Tstart - Tsub
+       submition_rank =   problem_rank    -    _________________________    -    ( $wrongAnswerCount * 5 )
+                                                           60
 
-           Minimum Submmition Rank is = 40% Of problem rank
+       Minimum Submmition Rank is = 40% Of problem rank
 
-    ```
+```
 
-    - User rank <br>
-        - Users are ranked according to the highest sum of the ACCEPTED problems rank.
-        - Scoreboard Time is the time of the user last submition.
+- User rank <br>
+    - Users are ranked according to the highest sum of the ACCEPTED problems rank.
+    - Scoreboard Time is the time of the user last submition.
 
-        ![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/scoreboard.PNG "Judge")
+    ![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/scoreboard.PNG "Judge")
 
-    Time is the Time of the user last Submmition
+Time is the Time of the user last Submmition
 
 
 ## PreRequirements
