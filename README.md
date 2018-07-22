@@ -1,5 +1,5 @@
-# Zeta :clock10:
-Zeta :clock10: is an offline judge for programming contests :postal_horn:
+# Zeta ⚖
+Zeta ⚖ is an offline judge for programming contests :trophy:
 <br>
 
 ![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/welcome.PNG "Zeta Login Page")
@@ -19,7 +19,7 @@ after judging a problem the contestant can get one of 4 responses :- <br>
 
 ![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/judge.PNG "Judge")
 
-green judge mean it is recommended to use this type of judging for this submmition
+**green judge mean it is recommended to use this type of judging for this submmition**
 
 
 - Automatic :vs: Manual Judging
@@ -46,16 +46,14 @@ green judge mean it is recommended to use this type of judging for this submmiti
 
     ![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/scoreboard.PNG "Judge")
 
-Time is the Time of the user last Submmition
+    **Time is the Time of the user last Submmition**
 
 
-## PreRequirements
-- xampp <br>
-    <span style="color: red">if you have any problem with the calss named String it is according to PHP version read this to fix the problem : https://github.com/cakephp/cakephp/issues/7573</span>
-- GCC Compiler <br>
-    i used <a href="https://nuwen.net/mingw.html" >Mingw</a>
+## :rocket: PreRequirements
+- xampp ( if you have any problem with the calss named String it is according to PHP version read this to fix the problem : https://github.com/cakephp/cakephp/issues/7573 )
+- GCC Compiler ( i used <a href="https://nuwen.net/mingw.html" >Mingw</a> )
 
-## Installation
+## :fire: Installation
 - Download the Repo `git clone https://github.com/aa-ahmed-aa/Zeta` or via the download button.
 - Import the database file in the `Database/zeta_4.sql` to phpmyadmin.
 - Go to `app/Config/database.php` and update username and password to your credential
@@ -70,7 +68,7 @@ Time is the Time of the user last Submmition
 If you find any problem feel free to open issues with any error you find or features you think we can add to Zeta, if you have any problem while you are installing zeta please feel free to contact me at __ahmedkhaled36@hotmail.com__
 
 
-## License
+## :police_car: License
 The MIT License (MIT). Please see [License](https://github.com/aa-ahmed-aa/Dorm/blob/master/LICENSE) File for more information.
 
 
