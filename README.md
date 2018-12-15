@@ -2,7 +2,7 @@
 Zeta :dragon: is an offline judge for programming contests :trophy:
 <br>
 
-![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/welcome.PNG "Zeta Login Page")
+![Alt text](https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/main.gif "Zeta Login Page")
 
 ## :guardsman: Features
 - Contestants auto ranking.
@@ -24,7 +24,7 @@ after judging a problem the contestant can get one of 4 responses :- <br>
 
 - Automatic :vs: Manual Judging
     - Automatic judging
-        It will run the contestant solution and compare it with the testcases given to the that problem and respond to the that user submition .<br>
+        It will run the contestant solution and compare it with the testcases given to that problem and respond to that user submition .<br>
     - Manual Judging
         Adding the response manually to this submition because Sometimes users didn't follow the rules of the contest and read or write from i/o Stream Not File.<br>
 
@@ -58,7 +58,7 @@ after judging a problem the contestant can get one of 4 responses :- <br>
 - Import the database file in the `Database/zeta_4.sql` to phpmyadmin.
 - Go to `app/Config/database.php` and update username and password to your credential
 - Download <a href="https://nuwen.net/mingw.html" >Mingw</a> compiler and copy it to your Zeta path.
-- Now Goto <a href="http://localhost/Zeta">http://localhost/Zeta</a> and user username : ahmedkhaled, password : ahmed to login (this is the default admin account you can use it to add other admins and contestant then delete it later)
+- Now Goto <a href="http://localhost/Zeta">http://localhost/Zeta</a> and user username : ahmedkhaled, password : ahmedkhaled123 to login (this is the default admin account you can use it to add other admins and contestant then delete it later)
 
 > # Before starting a contest you should go to Settings and set the starting time of the contest this time is used to ranks problems and contestant in the scoreboard
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2018 at 05:01 PM
+-- Generation Time: Dec 15, 2018 at 01:43 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -91,9 +91,9 @@ CREATE TABLE IF NOT EXISTS `submittions` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=134 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=128 ;
 
--- --------------------------------------------------------
+
 
 --
 -- Table structure for table `testcases`
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `testcases` (
   `input_text` text NOT NULL,
   `output_text` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=68 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=94 ;
 
 -- --------------------------------------------------------
 
@@ -120,14 +120,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` int(11) NOT NULL COMMENT '0->user 1 ->admin',
   `rank` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=107 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=105 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`, `rank`) VALUES
-(1, 'ahmedkhaled', 'd3a89dd521aea9dbd8f9d8a08e7394d6f0a9f71d', 1, 0);
+(104, 'ahmedkhaled', 'a3d51a922d6e471bfbb3a775a847c865a9226fe6', 1, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
