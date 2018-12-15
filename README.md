@@ -1,9 +1,9 @@
 # Zeta :dragon:
 Zeta :dragon: is an offline judge for programming contests :trophy:
 <br>
-
-<img src="https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/main.gif" alt="Landing Page" align="center" width="800" height="400" />
-
+<p align="center">
+    <img src="https://github.com/aa-ahmed-aa/Zeta/blob/master/screenshots/main.gif" alt="Landing Page" width="800" height="400" />
+</p>
 ## :guardsman: Features
 - Contestants auto ranking.
 - Can add clarifications for problems.
