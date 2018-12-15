@@ -7,11 +7,35 @@
     .main{
         font-family: 'Acme', sans-serif;
     }
+    .anima{
+        top: 39px;
+        left: -494px;
+        position: fixed;
+        font-size: 30px;
+        transform: rotate(-35deg);
+        text-decoration: none;
+        animation-name: example;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        padding : 0px 500px 0px 500px;
+        border-radius: 5px;
+        background-color: rgb(0, 0, 0);
+    }
+
+    /* Standard syntax */
+    @keyframes example {
+        0%   {color:rgb(255, 255, 255); }
+        25%  {color:rgba(255, 255, 96, 0.801);}
+        50%  {color:rgba(112, 102, 255, 0.705);}
+        75%  {color:rgb(101, 255, 101);}
+        100% {color:rgb(255, 255, 255);}
+    }
 </style>
 <body>
     <div class="main" style="overflow: hidden;text-align: center;">
-        <h1 style="font-size: 50px;">Zeta 🐉 </h1>
+        <h1 style="font-size: 50px;">Zeta 🐉 </h1> <a class="anima" href="https://github.com/aa-ahmed-aa/Zeta">Githup Repo</a>
         <img src="https://github.com/aa-ahmed-aa/Zeta/raw/master/screenshots/main.gif" alt="Landing Page"/>
+        <br>
         <div>
             <div style="font-size: 50px; overflow: hidden;text-align: center;">  🔥 Installation </div>
             <ul style="overflow: hidden;text-align: left;padding-left: 400px;width: 670px;">
